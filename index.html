@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BoolzApp</title>
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+<body>
+
+  <div id="app">
+    <div id="main-container">
+      <div id="contact-list-container">
+
+        <div class="toolbar">
+          <div>
+            <div class="avatar-container">
+              <img src="img/avatar_io.jpg" alt="">
+            </div>
+            <div class="user-name">Nome Utente</div>
+          </div>
+          <div class="buttons-container">
+            <i class="fas fa-circle-notch"></i>
+            <i class="fas fa-comment-alt"></i>
+            <i class="fas fa-ellipsis-v"></i>
+          </div>
+        </div>
+
+        <div id="banner"></div>
+        
+        <div id="contact-list">
+          <input type="text" 
+          id="name-search" 
+          placeholder="Cerca o inizia nuova chat"
+          >
+          <ul>
+            <li v-for="contact in contacts"
+            @click:="displayConversation(contact)"
+            >
+              <div class="avatar-container">
+                <img :src="`img/avatar${contact.avatar}.jpg`">
+              </div>
+              <span class="contact-name">{{ contact.name }}</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="conversation-container">
+        <div class="toolbar"></div>
+
+        <div class="conversation">
+          <div class="message-container">
+            <div class="message sent">
+              <div class="text">Ciao come stai?</div>
+              <div class="time">10/01/2022 23:20:32</div>
+            </div>
+          </div>
+          <div class="message-container">
+            <div class="message received">
+              <div class="text">Ciao come stai?</div>
+              <div class="time">10/01/2022 23:20:32</div>
+            </div>
+          </div>
+        </div>
+
+        <div id="message-input" class="toolbar"></div>
+      </div>
+
+
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
