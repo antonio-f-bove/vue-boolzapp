@@ -43,7 +43,8 @@
           >
           <ul>
             <li v-for="(contact, i) in contacts"
-            @click:="currentIndex = i"
+            @click="currentIndex = i" 
+            :class="{selected: currentIndex === i}"
             >
               <div class="avatar-container">
                 <img :src="`img/avatar${contact.avatar}.jpg`">
