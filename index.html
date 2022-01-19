@@ -87,7 +87,10 @@
         <div id="message-input" class="toolbar">
           <div class="button"><i class="far fa-smile"></i></div>
 
-          <input type="text" placeholder="Scrivi un messaggio">
+          <input type="text" placeholder="Scrivi un messaggio"
+          v-model="newMessage"
+          @keyup.enter="inputMessage('user')"
+          >
 
           <div class="button"><i class="fas fa-microphone"></i></div>
         </div>

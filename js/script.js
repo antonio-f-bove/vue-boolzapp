@@ -48,11 +48,38 @@ new Vue ({
       },
     ],
     currentIndex: 0,
+    newMessage: '',
+    isAnswered: true,
   },
   methods: {
-    // displayConversation: function (index) {
-    //   this.currentConversationIndex = index;
-    // }
+    inputMessage: function (sender) {
+      let newMessageObject = {
+        date: '10/01/2020 16:15:22',
+        text: this.newMessage,
+        status: ''
+      };
+
+      if (sender === 'user') {
+        newMessageObject.status = 'sent';
+        this.isAnswered = false;
+      } else {
+        newMessageObject.text = 'ok';
+        newMessageObject.status = 'received';
+      }
+      
+      this.contacts[this.currentIndex].messages.push(newMessageObject);
+      this.newMessage = '';
+
+      if (!this.isAnswered) {
+        this.autoAnswer();
+      }
+    },
+    autoAnswer: function () {
+      this.isAnswered = true;
+      setTimeout(() => {
+        this.inputMessage('contact');
+      }, 1000);
+    }
     // getLastAcces: function () {
     //   let latest = null;
     //   this.contacts.messages.forEach(message => {
