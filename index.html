@@ -42,8 +42,8 @@
           placeholder="Cerca o inizia nuova chat"
           >
           <ul>
-            <li v-for="contact in contacts"
-            @click:="displayConversation(contact)"
+            <li v-for="(contact, i) in contacts"
+            @click:="currentIndex = i"
             >
               <div class="avatar-container">
                 <img :src="`img/avatar${contact.avatar}.jpg`">
@@ -58,11 +58,11 @@
         <div class="toolbar">
           <div class="row">
             <div class="avatar-container">
-              <img src="img/avatar_io.jpg" alt="">
+              <img :src="`img/avatar${contacts[currentIndex].avatar}.jpg`" alt="">
             </div>
             <div>
-              <div class="user-name">Nome Utente</div>
-              <div class="last-access">Ultimo accesso </div>
+              <div class="user-name">{{ contacts[currentIndex].name }}</div>
+              <div class="last-access">Ultimo accesso {{ <!-- getLastAccess --> }}</div>
             </div>
           </div>
 
@@ -74,16 +74,11 @@
         </div>
 
         <div class="conversation">
-          <div class="message-container">
-            <div class="message sent">
-              <div class="text">Ciao come stai?</div>
-              <div class="time">10/01/2022 23:20:32</div>
-            </div>
-          </div>
-          <div class="message-container">
-            <div class="message received">
-              <div class="text">Ciao come stai?</div>
-              <div class="time">10/01/2022 23:20:32</div>
+          <div v-for="message in contacts[currentIndex].messages"
+          class="message-container">
+            <div class="message" :class="message.status">
+              <div class="text">{{ message.text }}</div>
+              <div class="time">{{ message.date }}</div>
             </div>
           </div>
         </div>

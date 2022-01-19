@@ -47,11 +47,18 @@ new Vue ({
         ],
       },
     ],
-    currentConversation: 0,
+    currentIndex: 0,
   },
   methods: {
-    displayConversation: function (contact) {
-
-    }
+    // displayConversation: function (index) {
+    //   this.currentConversationIndex = index;
+    // }
+    // getLastAcces: function () {
+    //   let latest = null;
+    //   this.contacts.messages.forEach(message => {
+    //     // TODO
+    //   });
+    //   return latest
+    // }
   }
 })
