@@ -50,12 +50,12 @@
             @click="currentIndex = i" 
             :class="{selected: currentIndex === i}"
             >
-            <div v-if="contact.visible">
-              <div class="avatar-container">
-                <img :src="`img/avatar${contact.avatar}.jpg`">
+              <div v-if="contact.visible">
+                <div class="avatar-container">
+                  <img :src="`img/avatar${contact.avatar}.jpg`">
+                </div>
+                <span class="contact-name">{{ contact.name }}</span>
               </div>
-              <span class="contact-name">{{ contact.name }}</span>
-            </div>
             </li>
           </ul>
         </div>

@@ -101,19 +101,22 @@ input#name-search {
 #contact-list ul {
   list-style: none;
   height: calc(100% - 30px);  
-    /* -30px a causa di p;adding e margin accumulati */
+    /* -30px a causa di padding e margin accumulati */
   border-right: 1px solid #ccc;
 }
 
 #contact-list li {
   list-style: none;
+}
+#contact-list li.selected {
+  background-color: #eee;
+}
+
+#contact-list li > div {
   padding: 6px 12px;
   border-top: 1px solid #ccc;
 
   display: flex;
-}
-#contact-list li.selected {
-  background-color: #eee;
 }
 
 #contact-list li .contact-name {

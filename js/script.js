@@ -84,12 +84,12 @@ new Vue ({
     },
     filterContacts: function () {
       this.contacts.forEach((contact) => {
-       if (contact.name.toLowerCase().includes(this.nameSearch) || this.nameSearch !== '') {
+       if (contact.name.toLowerCase().includes(this.nameSearch) || this.nameSearch === '') {
           contact.visible = true;
-          console.log(contact)
+          console.log(contact.visible)
        } else {
          contact.visible = false;
-         console.log(contact)
+         console.log(contact.visible + '#')
        }
       })         
     }
