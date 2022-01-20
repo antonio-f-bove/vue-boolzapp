@@ -64,6 +64,10 @@ i {
   font-weight: 700;
   color: #aaa;
 }
+
+ul, li {
+  list-style: none;
+}
 /* #endregion */
 
 /* ------------------------------------- */
@@ -87,6 +91,7 @@ i {
   background-color: #fff;
   padding: 10px 10px 10px 0;
   height: calc(100% - 170px);
+  overflow-y: scroll;
 }
 
 input#name-search {
@@ -99,15 +104,11 @@ input#name-search {
 }
 
 #contact-list ul {
-  list-style: none;
   height: calc(100% - 30px);  
     /* -30px a causa di padding e margin accumulati */
   border-right: 1px solid #ccc;
 }
 
-#contact-list li {
-  list-style: none;
-}
 #contact-list li.selected {
   background-color: #eee;
 }
@@ -128,6 +129,7 @@ input#name-search {
   height: calc(100% - 160px);
   background: url(../img/mine.jpg);
   padding: 30px 10%;
+  overflow-y: scroll;
 }
 
 .message-container {
@@ -137,7 +139,7 @@ input#name-search {
 .message {
   font-size: 18px;
   width: 40%;
-  padding: 16px 12px 20px;
+  padding: 16px 18px 20px 12px;
   border-radius: 8px;
 
   position: relative;
@@ -157,6 +159,32 @@ input#name-search {
   position: absolute;
   right: 3px;
   bottom: 3px;
+}
+
+.message .dropdown-button::before {
+  font-family: "Font Awesome 5 Free";
+  content: "\f107";
+  font-weight: 700;
+}
+.message .dropdown-button {
+  position: absolute;
+  right: 6px;
+  top: 4px;
+}
+
+.message .dropdown {
+  /* width: 200px;
+  height: 100px; */
+  background-color: #fff;
+  box-shadow: 2px 3px 10px #aaa;
+  padding: 10px 20px;
+
+  position: absolute;
+  top: 90%;
+  right: 10px;
+}
+.message .dropdown li {
+  margin: 10px 0;
 }
 
 #message-input {

@@ -47,7 +47,8 @@ new Vue ({
         ],
       },
     ],
-    currentIndex: 0,
+    contactIndex: 0,
+    messageIndex,
     newMessage: '',
     isAnswered: true,
     nameSearch: '',
@@ -68,7 +69,7 @@ new Vue ({
         newMessageObject.status = 'received';
       }
       
-      this.contacts[this.currentIndex].messages.push(newMessageObject);
+      this.contacts[this.contactIndex].messages.push(newMessageObject);
       this.newMessage = '';
 
       // se non è un messaggio autogenerato, allora risponde
@@ -95,6 +96,9 @@ new Vue ({
     }, 
     whatTimeIsIt: function () {
       return dayjs().format('DD/MM/YYYY HH:mm:ss')
+    },
+    showDropdown: function () {
+
     }
     // getLastAcces: function () {
     //   let latest = null;

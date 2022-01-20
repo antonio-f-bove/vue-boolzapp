@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
   <link rel="stylesheet" href="css/style.css">
-  
+
   <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 </head>
@@ -47,8 +47,8 @@
           >
           <ul>
             <li v-for="(contact, i) in contacts"
-            @click="currentIndex = i" 
-            :class="{selected: currentIndex === i}"
+            @click="contactIndex = i" 
+            :class="{selected: contactIndex === i}"
             >
               <div v-if="contact.visible">
                 <div class="avatar-container">
@@ -65,10 +65,10 @@
         <div class="toolbar">
           <div class="row">
             <div class="avatar-container">
-              <img :src="`img/avatar${contacts[currentIndex].avatar}.jpg`" alt="">
+              <img :src="`img/avatar${contacts[contactIndex].avatar}.jpg`" alt="">
             </div>
             <div>
-              <div class="user-name">{{ contacts[currentIndex].name }}</div>
+              <div class="user-name">{{ contacts[contactIndex].name }}</div>
               <div class="last-access">Ultimo accesso {{ <!-- getLastAccess --> }}</div>
             </div>
           </div>
@@ -81,11 +81,18 @@
         </div>
 
         <div class="conversation">
-          <div v-for="message in contacts[currentIndex].messages"
+          <div v-for="message in contacts[contactIndex].messages"
           class="message-container">
             <div class="message" :class="message.status">
               <div class="text">{{ message.text }}</div>
               <div class="time">{{ message.date }}</div>
+              <div class="dropdown-button" @click="showDropdown"></div>
+              <div class="dropdown" v-if="">
+                <ul>
+                  <li>Message info</li>
+                  <li>Delete message</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
