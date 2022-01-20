@@ -55,7 +55,7 @@ new Vue ({
   methods: {
     inputMessage: function (sender) {
       let newMessageObject = {
-        date: '10/01/2020 16:15:22',
+        date: this.whatTimeIsIt(),
         text: this.newMessage,
         status: ''
       };
@@ -92,6 +92,9 @@ new Vue ({
          console.log(contact.visible + '#')
        }
       })         
+    }, 
+    whatTimeIsIt: function () {
+      return dayjs().format('DD/MM/YYYY HH:mm:ss')
     }
     // getLastAcces: function () {
     //   let latest = null;
