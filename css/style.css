@@ -43,7 +43,7 @@
 .toolbar .user-name {
   font-size: 24px;
 }
-.toolbar .last-access {
+.last-access {
   font-size: 14px;
   color: #333;
 }
@@ -123,6 +123,9 @@ input#name-search {
 #contact-list li .contact-name {
   margin: 4px 12px;
 }
+#contact-list li .last-access {
+  margin: 4px 12px;
+}
 
 /* #region conversation */
 .conversation {
@@ -167,6 +170,7 @@ input#name-search {
   font-weight: 700;
 }
 .message .dropdown-button {
+  cursor: pointer;
   position: absolute;
   right: 6px;
   top: 4px;
@@ -182,9 +186,11 @@ input#name-search {
   position: absolute;
   top: 90%;
   right: 10px;
+  z-index: 1000;
 }
 .message .dropdown li {
   margin: 10px 0;
+  cursor: pointer;
 }
 
 #message-input {

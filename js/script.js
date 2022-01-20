@@ -48,7 +48,7 @@ new Vue ({
       },
     ],
     contactIndex: 0,
-    messageIndex,
+    messageIndex: -1,
     newMessage: '',
     isAnswered: true,
     nameSearch: '',
@@ -97,15 +97,22 @@ new Vue ({
     whatTimeIsIt: function () {
       return dayjs().format('DD/MM/YYYY HH:mm:ss')
     },
-    showDropdown: function () {
-
+    showDropdown: function (index) {
+      this.messageIndex = index;
+    },
+    hideDropdown: function () {
+      this.messageIndex = -1;
+    },
+    deleteMessage: function (index, array) {
+      array.splice(index, 1);
+      this.messageIndex = -1;
+    },
+    getLastAccess: function () {
+      let latest = null;
+      // this.contacts.messages.forEach(message => {
+      //   // TODO
+      // });
+      return latest
     }
-    // getLastAcces: function () {
-    //   let latest = null;
-    //   this.contacts.messages.forEach(message => {
-    //     // TODO
-    //   });
-    //   return latest
-    // }
   }
 })
