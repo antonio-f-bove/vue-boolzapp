@@ -50,6 +50,7 @@ new Vue ({
     currentIndex: 0,
     newMessage: '',
     isAnswered: true,
+    nameSearch: '',
   },
   methods: {
     inputMessage: function (sender) {
@@ -70,6 +71,7 @@ new Vue ({
       this.contacts[this.currentIndex].messages.push(newMessageObject);
       this.newMessage = '';
 
+      // se non è un messaggio autogenerato, allora risponde
       if (!this.isAnswered) {
         this.autoAnswer();
       }
@@ -79,6 +81,17 @@ new Vue ({
       setTimeout(() => {
         this.inputMessage('contact');
       }, 1000);
+    },
+    filterContacts: function () {
+      this.contacts.forEach((contact) => {
+       if (contact.name.toLowerCase().includes(this.nameSearch) || this.nameSearch !== '') {
+          contact.visible = true;
+          console.log(contact)
+       } else {
+         contact.visible = false;
+         console.log(contact)
+       }
+      })         
     }
     // getLastAcces: function () {
     //   let latest = null;
