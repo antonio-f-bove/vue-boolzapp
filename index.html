@@ -44,7 +44,15 @@
             </div>
           </div>
 
-          <div id="banner"></div>
+          <div id="banner" v-if=isVisible>
+            <div class="img-container">
+              <i class="fas fa-bell-slash"></i>
+            </div>
+            <div class="text-container">
+              <div class="receive-notifications">Ricevi notifiche di nuovi messaggi</div>
+              <div class="activate-notifications"><a href="#">Attiva notifiche desktop</a></div>
+            </div>
+          </div>
 
           <div id="contact-list">
             <input

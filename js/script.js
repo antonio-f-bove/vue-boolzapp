@@ -52,6 +52,7 @@ new Vue ({
     newMessage: '',
     isAnswered: true,
     nameSearch: '',
+    isVisible: true,
   },
   methods: {
     inputMessage: function (sender) {
@@ -107,7 +108,7 @@ new Vue ({
       array.splice(index, 1);
       this.messageIndex = -1;
     },
-    getLastAccess: function () {
+    getLastAccess: function (contact) {
       let latest = null;
       // this.contacts.messages.forEach(message => {
       //   // TODO
